@@ -1,12 +1,12 @@
 import Box from "@mui/material/Box";
+import { Outlet } from "react-router";
 import Nav from "./components/Nav";
-import routes from "./routes";
 
 function App() {
   return (
     <Box sx={{ width: "100%" }}>
       <Nav />
-      {routes}
+      <Outlet />
     </Box>
   );
 }
