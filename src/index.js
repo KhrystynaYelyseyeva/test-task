@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Home, Help } from "./views";
 import App from "./App";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <React.StrictMode>
       <Routes>
         <Route path="/" element={<App />}>
@@ -17,5 +17,5 @@ root.render(
         </Route>
       </Routes>
     </React.StrictMode>
-  </BrowserRouter>
+  </HashRouter>
 );
