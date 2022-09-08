@@ -1,5 +1,5 @@
-import { memo } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { memo, useState } from "react";
+import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -16,16 +16,19 @@ const pages = [
 ];
 
 const Nav = () => {
-  const location = useLocation();
+  const [pathname, setPathname] = useState(window.location.pathname);
+
+  const handleChange = (event, newValue) => {
+    setPathname(newValue);
+  };
 
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
       <Tabs
         value={
-          pages.map(({ path }) => path).includes(location.pathname)
-            ? location.pathname
-            : "/"
+          pages.map(({ path }) => path).includes(pathname) ? pathname : "/"
         }
+        onChange={handleChange}
       >
         {pages.map(({ path, name }) => (
           <Tab
